@@ -1,0 +1,183 @@
+{
+  "game_type": "2d_cultivation_roguelite_survivor",
+  "game_name": "一念成仙 / 万法归宗",
+  "engine": "Tuanjie Engine 1.9.3",
+  "design_doc": "GAME_DESIGN_v1.md + 万法归宗企划案v2(词缀+道系统整合)",
+  "core_gameplay": "局外编辑功法(术法+灵根+5词缀+道) → 局内修炼 → Lv2/4/6/8/10解锁词缀 → Lv10满级悟道(技能替换) → 新功法再修炼 → 神通。术→法→道→神通。",
+  "design_philosophy": "术为根，灵根赋性，词缀塑形，道决定蜕变，悟道成神通。玩家不是在升级火球术，而是在把火球术修炼成自己想要的东西。",
+  "technical_scope": {
+    "render": "2D MeshRenderer + SpriteRenderer 混合",
+    "ui": "Canvas ScreenSpaceOverlay + SpriteRenderer UI",
+    "data": "ScriptableObject (SkillLibrary, EnemyLibrary, PlayerStatsLibrary, CultivationMethod, AffixDefinition, DaoDefinition)",
+    "scenes": ["大厅.scene (大厅/基地)", "秘境.unity (战斗场景)"],
+    "scale": "2x 场景缩放, orthoSize=40"
+  },
+  "progression_architecture": [
+    "基础术法 (5个骨架: 御剑/灵球/灵阵/灵刃/符箓 — 全部无属性)",
+    "灵根 (5种属性: 火/水/土/风/雷 — 决定技能Element, Lv1/3/5/8四个节点, Lv3/5/8获得灵根词缀)",
+    "词缀 (5槽位×45种: 20通用+15灵根+10术法专属, Lv2/4/6/8/10各解锁1个, 局外预设)",
+    "道 (每属性3条×5属性=15条/术法, Lv10满级触发悟道3选1, 技能替换为新功法)",
+    "神通 (道进化后再次满级→全屏大招, 复用现有贴图)",
+    "灵气反应 (属性碰撞: 火+风=炎, 水+风=冰, 水+土=草, 火+土=金)",
+    "悟道树 (局外: 术/法/道三条线+天赋, 解锁道/词缀/灵根/融合灵根)",
+    "神通/境界 (局外长期成长: 练气→筑基→金丹→元婴→化神→渡劫)"
+  ],
+  "affix_system_config": {
+    "enabled": true,
+    "slots_per_skill": 5,
+    "unlock_levels": [2, 4, 6, 8, 10],
+    "categories": {"generic": 20, "spirit_root": 15, "skill_specific": 10},
+    "total_affixes": 45,
+    "ingame_acquisition": "Lv2/4/6/8/10自动解锁预设词缀, 局外功法编辑系统预设5个词缀",
+    "outgame_unlock": "通用词缀默认解锁部分, 高级需灵石/悟道树解锁",
+    "spirit_root_upgrade": "灵根保持10级制, Lv1属性化, Lv3/5/8获得灵根词缀, Lv2/4/6/7/9/10给数值加成"
+  },
+  "dao_system_config": {
+    "enabled": true,
+    "daos_per_element": 3,
+    "elements": 5,
+    "total_daos_per_skill": 15,
+    "trigger": "Lv10满级自动触发悟道3选1",
+    "evolution": "道进化后新功法Lv1→Lv10→再次悟道→神通",
+    "outgame_unlock": "道需局外悟道树投入资源解锁, 未解锁显示锁",
+    "art_reuse": "所有道和神通复用现有投射物贴图, 通过scale/rotation/color/数量变化实现不同视觉"
+  },
+  "existing_systems": [
+    "CharacterController2D (单贴图+bob浮动+方向翻转+减速+ApplySlow)",
+    "EnemyController (基类: 移动/分离/血条/受击/死亡特效/近战DoMeleeAttack/碰撞防重叠EnsurePhysicsBody)",
+    "GhostRabbitController + FireSpiritController + IceFoxController + SpiritMonsterController + GoldenArmorController (5种敌人)",
+    "FlyingSword Lv1-10 (轨道飞剑)",
+    "FireballSpell Lv1-10 (自动火球, 火灵根变化)",
+    "SpiritOrbSpell Lv1-10 (灵球)",
+    "SpiritArraySpell Lv1-10 (灵力阵)",
+    "QiBladeSpell Lv1-10 (灵气刃, 弹射)",
+    "TalismanSpell Lv1-10 (符箓术, 环绕-攻击-附身-释放符号)",
+    "FireSpiritRoot Lv1-10 (火灵根被动+燃烧DoT+爆炸+传播)",
+    "WaterSpiritRoot Lv1-10 (水灵根+减速+水波扩散+沧海领域终极)",
+    "SpiritRootManager (多灵根属性统一管理, 火>水优先级)",
+    "PlayerStats + PlayerStatsComponent (暴击/闪避/攻击/防御/移速/godMode)",
+    "LevelUpSystem (3选1升级, timeScale=0暂停, 含灵根/技能/火球升级选项)",
+    "DamageNumber (元素颜色+暴击图标+属性着色)",
+    "TimeScalingSystem (每7分钟HP/ATK×2)",
+    "RaritySystem (凡/灵/仙/神品)",
+    "SkillLibrary + EnemyLibrary (ScriptableObject数据驱动, 6个技能asset+3个敌人asset)",
+    "DeathEffectRunner (碎片+灵气粒子+光环)",
+    "DevPanel (F1调试面板: 暂停/燃烧/死亡特效/杀怪/无敌/生成各怪物/刷怪速度)",
+    "HUD (ExpBar/HealthBar/ClassDisc/SkillPanelManager)",
+    "EnemySpawner (多敌人混合刷怪+法阵系统+权重配置)",
+    "EnemyProjectile (火精远程)",
+    "GameOverSystem (死亡→面板→返回大厅)",
+    "DecoSpawner (运行时随机生成场地装饰物)",
+    "大厅.scene (UI导航栏+浮空岛网格)",
+    "秘境.unity (战斗场景+装饰物, 2x缩放)"
+  ],
+    "missing_systems": [
+    "土灵根 EarthSpiritRoot (护盾/反震/减伤/击退/晕眩, 灵球→石弹)",
+    "风灵根 WindSpiritRoot (攻速/弹射/移速, 灵气刃→风刃)",
+    "雷灵根 ThunderSpiritRoot (暴击/连锁/麻痹, 灵球→雷球)",
+    "SpiritRootManager扩展 (添加土/风/雷到优先级链, 预留融合属性接口)",
+    "EnemyController状态扩展 (ApplyStun/ApplyHaste/击退/麻痹特效)",
+    "LevelUpSystem扩展 (厚土/疾风/惊雷灵根升级选项, 灵根改为4节点Lv1/3/5/8)",
+    "土/风/雷属性投射物贴图 (石弹/风球/雷球)",
+    "词缀系统 AffixSystem (45种: 20通用+15灵根+10术法专属, 5槽位Lv2/4/6/8/10解锁)",
+    "道系统 DaoSystem (每属性3道×5属性=15条/术法, Lv10满级替换技能→新功法→神通)",
+    "功法编辑系统 (局外自定义: 术法+灵根+5词缀+道, 5官方预设模板)",
+    "融合灵根系统 (炎/冰/草/金, 双灵根Lv3激活, 融合词缀3×4=12种, 融合道3×4=12条, 融合神通4种, 预留接口不立即实现)",
+    "属性反应系统 (融合间4种反应 + 雷×融合4种反应)",
+    "精英怪(石巨人)+掉落物系统(灵石/功法碎片/词缀碎片)",
+    "悟道树 (局外术/法/道三条线+天赋)",
+    "风灵蝶+雷球敌人",
+    "Boss赤焰妖王 (多阶段AI)",
+    "音效系统 (BGM+SFX)",
+    "场景切换 SceneTransitionManager (大厅→秘境)",
+    "境界系统 (练气→筑基→金丹→元婴→化神→渡劫)",
+    "局外大厅系统 (藏经阁/炼丹房/悟道台/灵脉/演武场)",
+    "本命法宝系统 (普通→灵剑→法宝→本命法宝→仙器)"
+  ],
+  "sprint_plan": {
+    "sprint1": {
+      "name": "基础体验",
+      "status": "COMPLETED",
+      "completed_tasks": [
+        "✅ GameOverSystem (死亡→面板→返回大厅)",
+        "✅ EnemySpawner多敌人混合 (5种敌人+法阵系统+权重)",
+        "✅ QiBladeSpell灵气刃 (弹射机制, Lv1-10)",
+        "✅ TalismanSpell符箓术 (环绕-攻击-附身-释放符号, Lv1-10)",
+        "✅ WaterSpiritRoot水灵根 (减速+水波扩散, Lv1-10)",
+        "✅ SpiritRootManager (多灵根属性统一管理)",
+        "✅ 近战攻击系统 (DoMeleeAttack+OnMeleeAttack虚方法)",
+        "✅ 怪物碰撞防重叠 (EnsurePhysicsBody+SphereCollider)",
+        "✅ SpiritMonster+GoldenArmor (2种额外敌人)",
+        "✅ DecoSpawner (运行时装饰物生成)",
+        "✅ EnemySpawner法阵系统"
+      ],
+      "remaining_tasks": [
+        "⏳ 场景切换 SceneTransitionManager (大厅→秘境, 移至Sprint4)"
+      ]
+    },
+    "sprint2": {
+      "name": "灵根系统",
+      "status": "IN_PROGRESS",
+      "priority": "P0",
+      "estimated_days": "2-3",
+      "tasks": [
+        "土灵根 EarthSpiritRoot (护盾/反震/减伤/击退/晕眩, 灵球→石弹)",
+        "风灵根 WindSpiritRoot (攻速/弹射/移速, 灵气刃→风刃, CharacterController2D.ApplyHaste)",
+        "雷灵根 ThunderSpiritRoot (暴击/连锁/麻痹, 灵球→雷球, PlayerStats暴击加成)",
+        "SpiritRootManager扩展 (火→水→土→风→雷优先级链)",
+        "EnemyController扩展 (ApplyStun/ApplyHaste+击退+麻痹特效)",
+        "LevelUpSystem扩展 (厚土/疾风/惊雷升级选项)",
+        "土/风/雷属性投射物贴图生成 (石弹/风球/雷球, 参照GhostRabbit_v2画风)"
+      ]
+    },
+    "sprint3": {
+      "name": "词缀+道+深度系统",
+      "status": "PENDING",
+      "priority": "P0",
+      "estimated_days": "3-4",
+      "tasks": [
+        "词缀系统 AffixSystem (45种: 20通用+15灵根+10术法专属, 5槽位, Lv2/4/6/8/10解锁)",
+        "道系统 DaoSystem (每属性3道×5属性=15条/术法, Lv10满级替换技能→新功法→神通)",
+        "功法编辑系统 (局外: 术法+灵根+5词缀+道=自定义功法, 5官方预设模板)",
+        "灵根升级扩展 (保持10级, Lv1/3/5/8为词缀节点, Lv3/5/8获得灵根词缀, 其余等级数值加成)",
+        "属性融合系统 (火+风=炎/水+风=冰/水+土=草/火+土=金)",
+        "精英怪(石巨人)+掉落物系统(灵石/功法碎片/词缀碎片)"
+      ]
+    },
+    "sprint4": {
+      "name": "Boss+内容+局外",
+      "status": "PENDING",
+      "priority": "P0",
+      "estimated_days": "3-4",
+      "tasks": [
+        "风灵蝶+雷球敌人",
+        "Boss赤焰妖王 (多阶段AI: 70%/30%阶段切换)",
+        "音效系统 (BGM+SFX)",
+        "场景切换 SceneTransitionManager (大厅→秘境传送门)",
+        "局外大厅系统 (藏经阁/炼丹房/宗门建设/悟道台/灵脉/演武场)",
+        "悟道树 (术/法/道三条成长线+天赋永久属性)",
+        "境界系统 (练气→筑基→金丹→元婴→化神→渡劫)",
+        "本命法宝系统 (普通→灵剑→法宝→本命法宝→仙器)"
+      ]
+    }
+  },
+  "step_count": 8,
+  "estimated_minutes": 240,
+  "priority_order": [
+    "P0 Sprint2: 土灵根 + 风灵根 + 雷灵根 + SpiritRootManager扩展 + EnemyController状态 + LevelUpSystem扩展 + 投射物贴图",
+    "P0 Sprint3: 词缀系统(25种) + 功法系统 + LevelUpSystem词缀接入 + 悟道系统 + 属性融合 + 精英怪+掉落物",
+    "P0 Sprint4: Boss赤焰妖王 + 风灵蝶/雷球敌人 + 音效 + 场景切换 + 局外大厅 + 境界系统 + 本命法宝",
+    "P1 V2.0: 局外词缀解锁系统 + 宗门建设深度 + 渡劫系统 + 多Boss轮换"
+  ],
+  "numerical_framework": {
+    "damage_formula": "Max(1, CeilToInt((attack × 0.15) × skillMultiplier × upgradeMult × spiritRootMult × methodMult × affixMult × (isCrit ? 1.5 : 1.0)))",
+    "damage_reduction": "enemyDefense / (enemyDefense + 100), 锐金词缀无视50%防御",
+    "skill_multipliers": {"FlyingSword": 1.2, "Fireball": 1.6, "SpiritOrb": 1.3, "SpiritArray": 0.5, "QiBlade": 1.0, "Talisman": 1.5},
+    "crit": {"base_rate": 0.05, "base_damage_mult": 1.5, "雷灵根Lv5+": "+15%暴击率"},
+    "exp_formula": "n²×100",
+    "exp_orbs": {"basic": 20, "medium": 200, "advanced": 800},
+    "time_scaling": "每420秒 HP×2 / ATK×2",
+    "affix_acquisition": "LevelUpSystem 3选1面板, 技能升级40% / 词缀35% / 灵根15% / 其他10%",
+    "wave_design": "Wave 1-3:鬼兔 | 4-6:鬼兔+火精 | 7-9:+冰狐+灵气妖怪 | 10+:金甲卫士 | Boss:每10波"
+  }
+}

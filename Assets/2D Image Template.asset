@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3518305fa00670c4799b099953f21dc2, type: 3}
+  m_Name: 2D Image Template
+  m_EditorClassIdentifier: 
+  serializedNodes: []
+  nodes:
+  - rid: 8893744364158451720
+  - rid: 8893744364158451721
+  - rid: 8893744364158451722
+  nodeNames:
+    rid: 8893744364158451723
+  edges:
+  - GUID: b04f4718-ab15-46ed-939b-ff9caceb72d1
+    owner: {fileID: 11400000}
+    inputNodeGUID: d6f8b003-d787-4776-9f56-cc7d4ddbb904
+    outputNodeGUID: 7f4a06b8-65d3-470e-90de-8e885704e26e
+    inputFieldName: prompt
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 82c942da-92a9-4112-ab3b-52526ad9d9ad
+    owner: {fileID: 11400000}
+    inputNodeGUID: bec95e38-56c2-4eea-8897-09aa0066cb74
+    outputNodeGUID: d6f8b003-d787-4776-9f56-cc7d4ddbb904
+    inputFieldName: m_Texture
+    outputFieldName: m_OutputTexture
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  groups: []
+  stackNodes: []
+  pinnedElements:
+  - position:
+      serializedVersion: 2
+      x: 0
+      y: 21
+      width: 150
+      height: 200
+    opened: 1
+    editorType:
+      serializedType: UnityEditor.AIGraph.TJAIGraphProcessorView, Tuanjie.AIGraph.Editor,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  exposedParameters: []
+  serializedParameterList: []
+  stickyNotes:
+  - position:
+      serializedVersion: 2
+      x: 200
+      y: 50
+      width: 150
+      height: 100
+    title: "\u6DF7\u5143\u6587\u751F\u56FE"
+    content: "\u8F93\u5165\u56FE\u7247\u63CF\u8FF0Prompt\u751F\u6210\u56FE\u7247\u3002\n"
+  - position:
+      serializedVersion: 2
+      x: 900
+      y: 0
+      width: 300
+      height: 100
+    title: "\u8282\u70B9\u4FE1\u606F"
+    content: "\u8FD0\u884CTextureImporterNode\uFF0C\u5BF9\u5E94\u5728AssetPath\u7684\u56FE\u7247\u5C06\u5728\u786E\u8BA4\u540E\u88AB\u66FF\u6362\u3002"
+  nodeInspectorReference: {fileID: 0}
+  description: 
+  position: {x: 0, y: 0, z: 0}
+  scale: {x: 1, y: 1, z: 1}
+  settings:
+    widthScale: 1
+    heightScale: 1
+    depthScale: 1
+    width: 512
+    height: 512
+    depth: 512
+    potSize: 512
+    sizeMode: 1
+    dimension: 2
+    outputChannels: 1
+    outputPrecision: 3
+    editFlags: 128
+    doubleBuffered: 0
+    wrapMode: 0
+    filterMode: 0
+    refreshMode: 2
+    period: 0
+  _outputTextures: []
+  history:
+    graph: {fileID: 11400000}
+    assetsCache:
+      rid: 8893744364158451724
+    orderedNodes:
+    - rid: 8893744364158451721
+  defaultNodeInheritanceMode: -2
+  resourceFolder: 
+  references:
+    version: 2
+    RefIds:
+    - rid: 8893744364158451720
+      type: {class: StringNode, ns: , asm: Tuanjie.AIGraph.Runtime}
+      data:
+        nodeCustomName: String
+        GUID: 7f4a06b8-65d3-470e-90de-8e885704e26e
+        computeOrder: 0
+        status: 0
+        position:
+          serializedVersion: 2
+          x: 200
+          y: 150
+          width: 100
+          height: 100
+        expanded: 0
+        inCollapsedGroup: 0
+        debug: 0
+        nodeLock: 0
+        isUpdate: 0
+        isPinned: 0
+        inputString: 
+        output: 
+        textFiledValue: 
+        isShowString: 1
+    - rid: 8893744364158451721
+      type: {class: HyTexttoImageV3Node, ns: UnityEngine.AIGraph, asm: Tuanjie.AIGraph.Runtime}
+      data:
+        nodeCustomName: Advanced Text To Image(Hunyuan)
+        GUID: d6f8b003-d787-4776-9f56-cc7d4ddbb904
+        computeOrder: 1
+        status: 0
+        position:
+          serializedVersion: 2
+          x: 550
+          y: 150
+          width: 100
+          height: 100
+        expanded: 0
+        inCollapsedGroup: 0
+        debug: 0
+        nodeLock: 0
+        isUpdate: 0
+        isPinned: 0
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 512
+          height: 512
+          depth: 1
+          potSize: 0
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        hasSettings: 0
+        hasPreview: 1
+        hasSave: 1
+        saveHistory: 1
+        allowHistory: 1
+        taskID: 
+        assetPath: 
+        taskCostTime: 2
+        taskCostToken: 20
+        m_OutputTexture: {fileID: 0}
+        outputImageUrl: 
+        prompt: 
+        revise: 1
+        enableThinking: 1
+        seed: 0
+        revisedPrompt: 
+        size: 1024x1024
+    - rid: 8893744364158451722
+      type: {class: TextureImporterNode, ns: UnityEngine.AIGraph, asm: Tuanjie.AIGraph.Runtime}
+      data:
+        nodeCustomName: TextureImporterNode
+        GUID: bec95e38-56c2-4eea-8897-09aa0066cb74
+        computeOrder: 2
+        status: 0
+        position:
+          serializedVersion: 2
+          x: 900
+          y: 100
+          width: 100
+          height: 100
+        expanded: 0
+        inCollapsedGroup: 0
+        debug: 0
+        nodeLock: 0
+        isUpdate: 0
+        isPinned: 0
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 512
+          height: 512
+          depth: 1
+          potSize: 0
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        hasSettings: 0
+        hasPreview: 1
+        hasSave: 0
+        m_Importer: {fileID: 3, guid: 33790f8c78f12c5428e6781d3ffc528e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 33790f8c78f12c5428e6781d3ffc528e, type: 3}
+    - rid: 8893744364158451723
+      type: {class: NodeName, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        NameList:
+        - String
+        - Advanced Text To Image(Hunyuan)
+        - TextureImporterNode
+    - rid: 8893744364158451724
+      type: {class: NodeAssetsCache, ns: UnityEngine.AIGraph, asm: Tuanjie.AIGraph.Runtime}
+      data:
+        m_Keys:
+        - rid: 8893744364158451721
+        m_Values:
+        - rid: 8893744364158451725
+    - rid: 8893744364158451725
+      type: {class: NodeHistory, ns: UnityEngine.AIGraph, asm: Tuanjie.AIGraph.Runtime}
+      data:
+        expanded: 1
+        m_IDWithPreview: []

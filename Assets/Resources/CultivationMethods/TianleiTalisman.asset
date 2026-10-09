@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281943cd27a9634fa8ebdb0a64a5d92, type: 3}
+  m_Name: TianleiTalisman
+  m_EditorClassIdentifier: 
+  methodId: tianlei_talisman
+  displayName: "\u5929\u96F7\u7B26\u7B93"
+  isPreset: 1
+  description: "\u7B26\u843D\u60CA\u96F7\uFF0C\u9EBB\u75F9\u4F17\u751F\u3002\u8FDE\u9501\u5343\u52AB\uFF0C\u96F7\u72F1\u964D\u4E16\u3002"
+  baseSkillId: Talisman
+  spiritRoot: 5
+  spiritRootLevel: 1
+  affixes: 2b00000022000000200000001300000021000000
+  daoId: Dao_Thunder_Roar
+  damageBonus: 0
+  attackSpeedBonus: 0

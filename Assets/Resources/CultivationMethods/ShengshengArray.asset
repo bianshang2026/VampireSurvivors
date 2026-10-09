@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281943cd27a9634fa8ebdb0a64a5d92, type: 3}
+  m_Name: ShengshengArray
+  m_EditorClassIdentifier: 
+  methodId: shengsheng_array
+  displayName: "\u751F\u751F\u4E0D\u606F"
+  isPreset: 1
+  description: "\u6C34\u6ECB\u517B\u9635\uFF0C\u7EF5\u7EF5\u4E0D\u7EDD\u3002\u56F0\u654C\u4E8E\u6B64\uFF0C\u6D88\u78E8\u800C\u4EA1\u3002"
+  baseSkillId: SpiritArray
+  spiritRoot: 1
+  spiritRootLevel: 3
+  affixes: 2800000018000000190000000a0000000d000000
+  daoId: Dao_Water_Field
+  damageBonus: 0
+  attackSpeedBonus: 0

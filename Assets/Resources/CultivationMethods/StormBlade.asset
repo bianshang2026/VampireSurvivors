@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281943cd27a9634fa8ebdb0a64a5d92, type: 3}
+  m_Name: StormBlade
+  m_EditorClassIdentifier: 
+  methodId: storm_blade
+  displayName: "\u98CE\u66B4\u7075\u5203"
+  isPreset: 1
+  description: "\u75BE\u98CE\u77E5\u52B2\uFF0C\u5203\u968F\u98CE\u6D41\u3002\u5F39\u5C04\u5343\u8F6C\uFF0C\u98CE\u5203\u4E0D\u7EDD\u3002"
+  baseSkillId: QiBlade
+  spiritRoot: 3
+  spiritRootLevel: 1
+  affixes: 0500000010000000120000002a0000000b000000
+  daoId: Dao_Wind_Storm
+  damageBonus: 0
+  attackSpeedBonus: 0

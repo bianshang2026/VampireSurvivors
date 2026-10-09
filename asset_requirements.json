@@ -1,0 +1,433 @@
+{
+  "project_path": "D:/project/VampireSurvivors",
+  "game_type": "2d_cultivation_roguelite_survivor",
+  "game_name": "一念成仙 / 万法归宗",
+  "engine": "Tuanjie Engine 1.9.3",
+  "design_doc": "GAME_DESIGN_v1.md + 万法归宗企划案(词缀系统整合)",
+
+  "skill_system_config": {
+    "enabled": true,
+    "existing_skills": ["FlyingSword", "FireballSpell", "SpiritOrbSpell", "SpiritArraySpell", "QiBladeSpell", "TalismanSpell"],
+    "planned_skills": [],
+    "existing_spirit_roots": ["FireSpiritRoot", "WaterSpiritRoot"],
+    "planned_spirit_roots": ["EarthSpiritRoot", "WindSpiritRoot", "ThunderSpiritRoot"],
+    "max_skill_slots": 6,
+    "skill_level_cap": 10,
+    "enlightenment_enabled": true,
+    "cultivation_method_enabled": true,
+    "affix_system_enabled": true,
+    "affix_slots_per_skill": 5,
+    "affix_unlock_levels": [2, 4, 6, 8, 10],
+    "affix_total_types": 45,
+    "affix_breakdown": {"generic": 20, "spirit_root": 15, "skill_specific": 10},
+    "dao_system_enabled": true,
+    "daos_per_element": 3,
+    "total_daos_per_skill": 15,
+    "spirit_root_upgrade_nodes": "10级制, 关键节点Lv1/3/5/8, Lv3/5/8获得灵根词缀"
+  },
+
+  "customization_config": {
+    "visual_style": "cartoon",
+    "theme": "eastern_cultivation",
+    "art_style": "Q版平滑矢量, 纯色平涂, 粗黑均匀描边, 极简贴纸风, NO gradients, NO shading, NO glow",
+    "reference_assets": [
+      "GhostRabbit_v2.png (画风标准参考 — 纯色平涂极简版)",
+      "Cultivator_WhiteRobe_v5.png (角色参考)",
+      "Sprite_20260807_193346.png (角色正面参考)",
+      "Sprite_20260807_213848.png (火球/火花投射物风格)",
+      "Sprite_20260809_002731.png (法阵范围特效风格)"
+    ],
+    "color_palette": {
+      "primary": {"r": 0.93, "g": 0.93, "b": 0.88, "description": "青白 (道袍底色)"},
+      "secondary": {"r": 0.3, "g": 0.6, "b": 0.9, "description": "天蓝 (灵力/道袍镶边)"},
+      "accent": {"r": 1.0, "g": 0.84, "b": 0.2, "description": "金色 (等级/稀有度)"},
+      "danger": {"r": 0.85, "g": 0.2, "b": 0.2, "description": "朱红 (火属性/危险)"},
+      "spirit": {"r": 0.6, "g": 0.9, "b": 0.75, "description": "灵气绿 (经验/灵力)"}
+    },
+    "game_specific_config": {
+      "enemy_types": {
+        "existing": [
+          "GhostRabbit (近战跳跃, None属性)",
+          "FireSpirit (远程火球, Fire属性)",
+          "IceFox (减速光环, Water属性)",
+          "SpiritMonster (序列帧近战, None属性)",
+          "GoldenArmor (近战精英, Metal属性, 12帧攻击序列帧)"
+        ],
+        "planned": [
+          "StoneGolem (土系精英, HP800, 投石+践踏+击退)",
+          "WindButterfly (风系, 高速, 群体出现)",
+          "ThunderBall (雷系, 蓄力后范围雷电)"
+        ]
+      },
+      "bosses": [
+        {"name": "赤焰妖王", "hp": 4000, "element": "Fire", "mechanics": "火焰领域+召唤火精", "phases": "70%二阶段, 30%狂暴"}
+      ],
+      "spirit_roots": {
+        "fire": {"status": "done", "passive": "燃烧DoT+爆炸+传播", "ultimate": "焚天领域"},
+        "water": {"status": "done", "passive": "减速+水波扩散", "ultimate": "沧海领域"},
+        "earth": {"status": "planned", "passive": "护盾/反震/减伤/击退/晕眩", "ultimate": "不灭山河"},
+        "wind": {"status": "planned", "passive": "攻速/弹射/移速", "ultimate": "风暴大道"},
+        "thunder": {"status": "planned", "passive": "暴击/连锁/麻痹(不参与融合)", "ultimate": "九霄雷狱"}
+      },
+      "affix_categories": {
+        "generic_20": ["分裂", "穿透", "追踪", "环绕", "旋转", "弹射", "回旋", "增殖", "聚灵", "扩散", "余威", "连杀", "斩杀", "吸灵", "蓄力", "延迟", "追风", "重击", "连发", "灵爆"],
+        "spirit_root_15": {
+          "fire": ["焚烧", "爆裂", "燃传播"],
+          "water": ["深流", "水波", "冻结"],
+          "earth": ["震击", "护体", "震退"],
+          "wind": ["疾风", "追风", "风刃"],
+          "thunder": ["连锁", "雷暴", "麻痹"]
+        },
+        "skill_specific_10": {
+          "FlyingSword": ["剑阵", "剑气"],
+          "SpiritOrb": ["聚能", "灵爆"],
+          "SpiritArray": ["扩阵", "叠阵"],
+          "QiBlade": ["切裂", "刃风"],
+          "Talisman": ["连符", "散符"]
+        }
+      },
+      "dao_system": {
+        "trigger": "Lv10满级自动触发悟道3选1",
+        "daos_per_element": 3,
+        "elements": 5,
+        "total_per_skill": 15,
+        "evolution": "道→新功法Lv1→Lv10→神通(全屏大招)",
+        "outgame_unlock": "道需局外悟道树解锁",
+        "art_reuse": "复用现有投射物贴图, scale/rotation/color/数量变化"
+      },
+      "fusion_elements": {
+        "fire+wind": {"name": "炎", "element": "FlameWind", "effect": "扩散灼烧, 范围扩大", "trigger": "火灵根Lv3+风灵根Lv3", "affixes": ["炎扩散", "炎风暴", "炎域"], "daos": ["炎龙道", "焚天道", "烈焰道"], "divine": "焚天炎龙神通"},
+        "water+wind": {"name": "冰", "element": "Frost", "effect": "冻结控制", "trigger": "水灵根Lv3+风灵根Lv3", "affixes": ["冰封", "冰碎", "冰传"], "daos": ["冰龙道", "绝对零度道", "碎冰道"], "divine": "绝对零度神通"},
+        "water+earth": {"name": "草", "element": "Wood", "effect": "生长+缠绕+回血", "trigger": "水灵根Lv3+土灵根Lv3", "affixes": ["生长", "缠绕", "寄生"], "daos": ["木龙道", "生命道", "荆棘道"], "divine": "万物生长神通"},
+        "fire+earth": {"name": "金", "element": "MetalFusion", "effect": "穿透+破甲", "trigger": "火灵根Lv3+土灵根Lv3", "affixes": ["破甲", "金锋", "铁壁"], "daos": ["金龙华", "万剑道", "铁壁道"], "divine": "万剑归宗神通"},
+        "fusion_reactions": {"炎+冰": "蒸汽降攻速", "冰+草": "凋零范围伤害", "草+金": "荆棘反弹", "金+炎": "熔金防御归零"},
+        "thunder_fusion_reactions": {"雷+炎": "爆燃暴伤+50%", "雷+冰": "超导冻结碎裂", "雷+草": "电磁麻痹范围扩大", "雷+金": "雷铁连锁+3穿透+2"},
+        "implementation_note": "融合属性排在Sprint3最后或Sprint4初期实现, 但所有代码必须预留扩展接口"
+      },
+      "cultivation_methods": {
+        "main": ["赤炎真诀", "沧海真诀", "厚土真诀", "疾风真诀", "雷霆真诀", "御剑心经", "灵阵真诀", "灵刃心经", "符箓真诀"],
+        "sub": ["聚灵诀", "灵泉诀", "破甲诀", "灵动诀", "暴怒诀", "灵盾诀"],
+        "forbidden": ["燃血秘法", "碎魂诀", "噬灵术"]
+      },
+      "enlightenment": {
+        "trigger": "技能使用200次+Lv5",
+        "branches": "3选1, 根据当前进化形态+灵根决定"
+      },
+      "realm_system": {
+        "stages": ["练气", "筑基", "金丹", "元婴", "化神", "渡劫"],
+        "type": "局外长期成长"
+      },
+      "scene_flow": {
+        "大厅": "基地/大厅 — 藏经阁/炼丹房/宗门建设/秘境入口",
+        "秘境": "战斗场景 — 自动攻击+升级+词缀+灵根+功法+悟道",
+        "transition": "通过秘境入口传送门进入, 死亡/通关后返回大厅"
+      }
+    }
+  },
+
+  "assets": [
+    {
+      "category": "Sprint2-灵根系统",
+      "items": [
+        {
+          "type": "script",
+          "name": "EarthSpiritRoot.cs",
+          "description": "土灵根Lv1-10: 护盾/反震/减伤/击退/晕眩, 灵球→石弹(直线+击退+10%晕眩0.5s), Lv5护盾, Lv10不灭山河",
+          "output_path": "Assets/Scripts/EarthSpiritRoot.cs",
+          "sprint": 2
+        },
+        {
+          "type": "script",
+          "name": "WindSpiritRoot.cs",
+          "description": "风灵根Lv1-10: 攻速/弹射/移速, 灵气刃→风刃(弹射+2速度+30%), Lv5额外风刃, Lv10风暴大道",
+          "output_path": "Assets/Scripts/WindSpiritRoot.cs",
+          "sprint": 2
+        },
+        {
+          "type": "script",
+          "name": "ThunderSpiritRoot.cs",
+          "description": "雷灵根Lv1-10: 暴击/连锁/麻痹, 灵球→雷球(直线+连锁1个60%), Lv5暴击+15%, Lv10九霄雷狱",
+          "output_path": "Assets/Scripts/ThunderSpiritRoot.cs",
+          "sprint": 2
+        },
+        {
+          "type": "script_modification",
+          "name": "SpiritRootManager.cs扩展",
+          "description": "添加土/风/雷灵根到GetEffectiveElement/GetDamageMult/GetRangeMult优先级链(火→水→土→风→雷)",
+          "output_path": "Assets/Scripts/SpiritRootManager.cs",
+          "sprint": 2
+        },
+        {
+          "type": "script_modification",
+          "name": "EnemyController.cs扩展",
+          "description": "新增ApplyStun(duration)+_isStunned字段, ApplyHaste(factor,duration), Earth属性击退效果, 麻痹状态紫色电弧视觉",
+          "output_path": "Assets/Scripts/EnemyController.cs",
+          "sprint": 2
+        },
+        {
+          "type": "script_modification",
+          "name": "LevelUpSystem.cs扩展",
+          "description": "新增土/风/雷灵根升级选项(厚土/疾风/惊雷), 复用UpgradeType枚举",
+          "output_path": "Assets/Scripts/LevelUpSystem.cs",
+          "sprint": 2
+        },
+        {
+          "type": "sprite",
+          "name": "RockOrb_Sprite",
+          "description": "石弹投射物: 棕色不规则圆形+2-3条黑色裂纹, 粗黑均匀描边, 纯色平涂, 参照GhostRabbit_v2.png画风",
+          "output_path": "Assets/Resources/RockOrb.png",
+          "style_params": {"visual_style": "cartoon", "theme": "eastern_cultivation", "reference": "GhostRabbit_v2.png"},
+          "sprint": 2
+        },
+        {
+          "type": "sprite",
+          "name": "WindOrb_Sprite",
+          "description": "风球投射物: 淡青色球形+2-3条弧线(风线), 粗黑描边, 纯色平涂",
+          "output_path": "Assets/Resources/WindOrb.png",
+          "style_params": {"visual_style": "cartoon", "theme": "eastern_cultivation", "reference": "GhostRabbit_v2.png"},
+          "sprint": 2
+        },
+        {
+          "type": "sprite",
+          "name": "ThunderOrb_Sprite",
+          "description": "雷球投射物: 紫色正圆球形+4-6紫色小三角电弧点, 粗黑描边, 纯色平涂",
+          "output_path": "Assets/Resources/ThunderOrb.png",
+          "style_params": {"visual_style": "cartoon", "theme": "eastern_cultivation", "reference": "GhostRabbit_v2.png"},
+          "sprint": 2
+        }
+      ]
+    },
+    {
+      "category": "Sprint3-词缀+道+深度系统",
+      "items": [
+        {
+          "type": "script",
+          "name": "AffixSystem.cs",
+          "description": "词缀系统核心: AffixType枚举(45种: 20通用+15灵根+10术法专属), AffixInstance, AffixCategory(Generic/SpiritRoot/SkillSpecific), 每技能5槽位Lv2/4/6/8/10解锁, HasAffix()/GetAffixLevel()查询, 词缀效果修改技能参数和行为",
+          "output_path": "Assets/Scripts/AffixSystem.cs",
+          "sprint": 3
+        },
+        {
+          "type": "script",
+          "name": "AffixDefinition.cs",
+          "description": "词缀定义ScriptableObject: type, category, description, unlockCost, unlockSource",
+          "output_path": "Assets/Scripts/AffixDefinition.cs",
+          "sprint": 3
+        },
+        {
+          "type": "script",
+          "name": "DaoSystem.cs",
+          "description": "道系统: 每属性3条道×5属性=15条/术法, Lv10满级触发悟道3选1, 技能替换为新功法Lv1, 新功法再满级→神通(全屏大招), 道需局外解锁, DaoDefinition ScriptableObject",
+          "output_path": "Assets/Scripts/DaoSystem.cs",
+          "sprint": 3
+        },
+        {
+          "type": "script",
+          "name": "MethodEditor.cs",
+          "description": "功法编辑系统: 局外自定义(基础术法+灵根+5词缀+道方向), 5个官方预设模板, 保存/加载/复制编辑",
+          "output_path": "Assets/Scripts/MethodEditor.cs",
+          "sprint": 3
+        },
+        {
+          "type": "script",
+          "name": "CultivationMethod.cs",
+          "description": "功法ScriptableObject: baseSkillId, spiritRoot, affixes[5], daoId, damageBonus, attackSpeedBonus",
+          "output_path": "Assets/Scripts/CultivationMethod.cs",
+          "sprint": 3
+        },
+        {
+          "type": "script",
+          "name": "ElementFusionSystem.cs",
+          "description": "属性融合: 扩展Element枚举(炎/冰/草/金), 双灵根组合触发, 融合后技能属性转换",
+          "output_path": "Assets/Scripts/ElementFusionSystem.cs",
+          "sprint": 3
+        },
+        {
+          "type": "script",
+          "name": "DropSystem.cs",
+          "description": "掉落物系统: 灵石/功法碎片/词缀碎片/完整功法/禁术碎片, 精英怪必掉, Boss掉完整功法",
+          "output_path": "Assets/Scripts/DropSystem.cs",
+          "sprint": 3
+        },
+        {
+          "type": "script_modification",
+          "name": "LevelUpSystem.cs扩展",
+          "description": "词缀选项混入3选1面板(35%概率), 技能升级40%, 灵根15%, 其他10%. 词缀优先挂载到当前最高等级技能",
+          "output_path": "Assets/Scripts/LevelUpSystem.cs",
+          "sprint": 3
+        },
+        {
+          "type": "scriptable_object",
+          "name": "AffixDefinition assets ×45",
+          "description": "45个词缀定义: 20通用+15灵根(5灵根×3)+10术法专属(5术法×2)",
+          "output_path": "Assets/Data/Affixes/",
+          "sprint": 3
+        },
+        {
+          "type": "scriptable_object",
+          "name": "DaoDefinition assets ×75",
+          "description": "75个道定义: 5术法×5属性×3道, 含神通进化",
+          "output_path": "Assets/Data/Daos/",
+          "sprint": 3
+        },
+        {
+          "type": "scriptable_object",
+          "name": "CultivationMethod assets ×5",
+          "description": "5个官方预设功法模板: 炎龙剑诀/沧海灵球/万岳金剑/风暴灵刃/天雷符箓",
+          "output_path": "Assets/Data/CultivationMethods/",
+          "sprint": 3
+        }
+      ]
+    },
+    {
+      "category": "Sprint4-Boss+内容+局外",
+      "items": [
+        {
+          "type": "script",
+          "name": "BossController.cs",
+          "description": "Boss控制器: 多阶段(70%/30%)+技能循环+大血条+召唤火精+弹幕",
+          "output_path": "Assets/Scripts/BossController.cs",
+          "sprint": 4
+        },
+        {
+          "type": "script",
+          "name": "StoneGolemController.cs",
+          "description": "石巨人: 继承EnemyController, 投石+践踏+击退, HP800/ATK32/DEF160/Earth, 精英怪必掉灵石+功法碎片",
+          "output_path": "Assets/Scripts/StoneGolemController.cs",
+          "sprint": 4
+        },
+        {
+          "type": "script",
+          "name": "WindButterflyController.cs",
+          "description": "风灵蝶: 高速Z字飞行+群体出现, HP30/ATK8/DEF5/Wind",
+          "output_path": "Assets/Scripts/WindButterflyController.cs",
+          "sprint": 4
+        },
+        {
+          "type": "script",
+          "name": "ThunderBallController.cs",
+          "description": "雷球: 蓄力后范围雷电, HP60/ATK20/DEF20/Thunder",
+          "output_path": "Assets/Scripts/ThunderBallController.cs",
+          "sprint": 4
+        },
+        {
+          "type": "script",
+          "name": "AudioManager.cs",
+          "description": "音频管理器: BGM循环+SFX播放, DontDestroyOnLoad",
+          "output_path": "Assets/Scripts/AudioManager.cs",
+          "sprint": 4
+        },
+        {
+          "type": "script",
+          "name": "SceneTransitionManager.cs",
+          "description": "场景切换: 大厅→秘境传送门, 死亡/通关返回大厅",
+          "output_path": "Assets/Scripts/SceneTransitionManager.cs",
+          "sprint": 4
+        },
+        {
+          "type": "script",
+          "name": "RealmSystem.cs",
+          "description": "境界系统: 练气→筑基→金丹→元婴→化神→渡劫, 局外长期成长, 影响基础属性和技能上限",
+          "output_path": "Assets/Scripts/RealmSystem.cs",
+          "sprint": 4
+        },
+        {
+          "type": "sprite",
+          "name": "StoneGolem_Sprite",
+          "description": "Q版石巨人, 灰褐色圆胖石头人, 大眼, 粗黑描边, 纯色平涂, 参照GhostRabbit_v2.png",
+          "output_path": "Assets/TJGenerators/History/StoneGolem_Sprite.png",
+          "style_params": {"visual_style": "cartoon", "theme": "eastern_cultivation", "reference": "GhostRabbit_v2.png"},
+          "sprint": 4
+        },
+        {
+          "type": "sprite",
+          "name": "WindButterfly_Sprite",
+          "description": "Q版风灵蝶, 浅蓝色蝴蝶, 紫色眼睛, 粗黑描边, 纯色平涂",
+          "output_path": "Assets/TJGenerators/History/WindButterfly_Sprite.png",
+          "style_params": {"visual_style": "cartoon", "theme": "eastern_cultivation", "reference": "GhostRabbit_v2.png"},
+          "sprint": 4
+        },
+        {
+          "type": "sprite",
+          "name": "ThunderBall_Sprite",
+          "description": "Q版雷球, 紫色球形, 电弧环绕, 粗黑描边, 纯色平涂",
+          "output_path": "Assets/TJGenerators/History/ThunderBall_Sprite.png",
+          "style_params": {"visual_style": "cartoon", "theme": "eastern_cultivation", "reference": "GhostRabbit_v2.png"},
+          "sprint": 4
+        },
+        {
+          "type": "sprite",
+          "name": "BloodDemonBoss_Sprite",
+          "description": "Q版赤焰妖王Boss, 暗红身躯+角, 比普通敌人大3倍, 粗黑描边, 纯色平涂",
+          "output_path": "Assets/TJGenerators/History/BloodDemon_Sprite.png",
+          "style_params": {"visual_style": "cartoon", "theme": "eastern_cultivation", "reference": "GhostRabbit_v2.png"},
+          "sprint": 4
+        },
+        {
+          "type": "scriptable_object",
+          "name": "StoneGolem.asset",
+          "description": "石巨人数据: HP800/ATK32/DEF160/Earth/精英投掷 (2x缩放后)",
+          "output_path": "Assets/Data/Enemies/StoneGolem.asset",
+          "sprint": 4
+        },
+        {
+          "type": "scriptable_object",
+          "name": "WindButterfly.asset",
+          "description": "风灵蝶数据: HP30/ATK8/DEF5/Wind/快速群体 (2x缩放后)",
+          "output_path": "Assets/Data/Enemies/WindButterfly.asset",
+          "sprint": 4
+        },
+        {
+          "type": "scriptable_object",
+          "name": "ThunderBall.asset",
+          "description": "雷球数据: HP60/ATK20/DEF20/Thunder/蓄力范围 (2x缩放后)",
+          "output_path": "Assets/Data/Enemies/ThunderBall.asset",
+          "sprint": 4
+        },
+        {
+          "type": "scriptable_object",
+          "name": "BloodDemon.asset",
+          "description": "赤焰妖王Boss数据: HP4000/ATK50/DEF100/Fire/Boss (2x缩放后)",
+          "output_path": "Assets/Data/Enemies/BloodDemon.asset",
+          "sprint": 4
+        },
+        {
+          "type": "bgm",
+          "name": "BattleBGM",
+          "description": "修仙风格战斗BGM, 古筝+笛子+鼓, 紧张感, 可循环, 30-60s",
+          "output_path": "Assets/Resources/Audio/BattleBGM.wav",
+          "duration": "30-60s loopable",
+          "sprint": 4
+        },
+        {
+          "type": "sfx",
+          "name": "LevelUpSFX",
+          "description": "升级音效, 清脆叮声+灵气上升",
+          "output_path": "Assets/Resources/Audio/LevelUp.wav",
+          "sprint": 4
+        },
+        {
+          "type": "sfx",
+          "name": "EnemyHitSFX",
+          "description": "命中音效, 短促打击感",
+          "output_path": "Assets/Resources/Audio/EnemyHit.wav",
+          "sprint": 4
+        },
+        {
+          "type": "sfx",
+          "name": "EnemyDeathSFX",
+          "description": "敌人死亡, 灵气消散",
+          "output_path": "Assets/Resources/Audio/EnemyDeath.wav",
+          "sprint": 4
+        },
+        {
+          "type": "sfx",
+          "name": "BossRoarSFX",
+          "description": "Boss吼叫, 低沉威压",
+          "output_path": "Assets/Resources/Audio/BossRoar.wav",
+          "sprint": 4
+        }
+      ]
+    }
+  ]
+}

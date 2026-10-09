@@ -1,0 +1,21 @@
+{
+  "imageSize": [2816, 1584],
+  "layers": [
+    { "file": "layer_00_base.jpg", "z": 0, "name": "底图", "box": null },
+    { "file": "layer_01_cloud_far.png", "z": 1, "name": "远景薄云", "box": [136, 0, 2382, 335] },
+    { "file": "layer_02_mtn_left.png", "z": 2, "name": "顶部左侧连片远山", "box": [140, 0, 511, 219] },
+    { "file": "layer_03_mtn_center.png", "z": 3, "name": "顶部中央远山", "box": [1092, 0, 1261, 183] },
+    { "file": "layer_04_island_small_l.png", "z": 4, "name": "顶部偏左小浮空山", "box": [816, 28, 904, 184] },
+    { "file": "layer_05_island_small_r.png", "z": 5, "name": "顶部偏右小浮空山", "box": [1695, 182, 1758, 267] },
+    { "file": "layer_06_cloud_mid.png", "z": 6, "name": "中景云", "box": [0, 328, 2799, 1281] },
+    { "file": "layer_07_island_tower.png", "z": 7, "name": "中部带塔楼浮岛", "box": [1372, 35, 1507, 269] },
+    { "file": "layer_08_island_pavilion_l.png", "z": 8, "name": "中部偏左带楼阁浮岛", "box": [972, 166, 1157, 355] },
+    { "file": "layer_09_mtn_peak_l.png", "z": 9, "name": "左侧独立尖顶远山", "box": [379, 124, 607, 370] },
+    { "file": "layer_10_cloud_front.png", "z": 10, "name": "前景浓云", "box": [0, 883, 2816, 1584] },
+    { "file": "layer_11_island_tower_mr.png", "z": 11, "name": "中右侧下方带塔楼浮岛", "box": [1761, 270, 1990, 457] },
+    { "file": "layer_12_mtn_peak_r.png", "z": 12, "name": "右侧独立尖顶远山", "box": [2364, 431, 2563, 649] },
+    { "file": "layer_13_island_main.png", "z": 13, "name": "中近景主浮岛建筑群", "box": [1822, 0, 2087, 349] },
+    { "file": "layer_14_island_tr.png", "z": 14, "name": "右上角带楼阁浮岛", "box": [2594, 62, 2811, 314] },
+    { "file": "layer_15_island_far_r.png", "z": 15, "name": "最右侧近景小悬浮浮岛", "box": [2676, 583, 2762, 741] }
+  ]
+}

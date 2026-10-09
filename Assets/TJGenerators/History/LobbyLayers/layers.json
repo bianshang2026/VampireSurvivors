@@ -1,0 +1,70 @@
+{
+  "source_image": "LobbyBG_Sect_src.png",
+  "source_size": [1671, 941],
+  "generator": "seedream_pro (Seedream 5.0 Pro layer decomposition)",
+  "task_id": "image_layers_1_639243411958859171",
+  "backend_task_id": "6a9da24b1c9a44b2d0759c5b",
+  "note": "Each transparent layer PNG is content-cropped (canvas != source 1671x941). bounding_box = non-transparent region (alpha>8) within each layer's own file, format [x, y, w, h] with y from top. Original canvas offsets were NOT recoverable: tool-side metadata was unavailable and template matching against the composite proved unreliable (Seedream regenerates layer pixels). Layers are ordered back-to-front by z_index.",
+  "layers": [
+    {
+      "z_index": 0,
+      "file": "layer_00_base.png",
+      "name": "base_full_scene",
+      "description": "完整合成底图（全部元素合成后的整图，1671x941，由 jpg 转为 png）",
+      "size": [1671, 941],
+      "bounding_box": [0, 0, 1671, 941],
+      "coverage_percent": 100.0,
+      "transparent": false
+    },
+    {
+      "z_index": 1,
+      "file": "layer_01_distant_mountains_sky.png",
+      "name": "distant_mountains_sky",
+      "description": "远景群山、天空与云层（画面上方横带）",
+      "size": [1417, 315],
+      "bounding_box": [0, 0, 1417, 315],
+      "coverage_percent": 72.8,
+      "transparent": true
+    },
+    {
+      "z_index": 2,
+      "file": "layer_02_midground_islands_clouds.png",
+      "name": "midground_islands_clouds",
+      "description": "中景浮岛群、瀑布与环绕云层",
+      "size": [1671, 456],
+      "bounding_box": [0, 0, 1671, 456],
+      "coverage_percent": 50.3,
+      "transparent": true
+    },
+    {
+      "z_index": 3,
+      "file": "layer_03_cloud_mist_ring.png",
+      "name": "cloud_mist_ring",
+      "description": "云雾环带层（环绕整个场景的灰白色云雾，近全画幅，半透明）",
+      "size": [1666, 934],
+      "bounding_box": [0, 0, 1666, 934],
+      "coverage_percent": 53.3,
+      "transparent": true
+    },
+    {
+      "z_index": 4,
+      "file": "layer_04_foreground_main_island.png",
+      "name": "foreground_main_island",
+      "description": "前景主岛建筑群（含中央广场法阵、桥梁、民居群）",
+      "size": [1570, 856],
+      "bounding_box": [0, 0, 1570, 856],
+      "coverage_percent": 62.7,
+      "transparent": true
+    },
+    {
+      "z_index": 5,
+      "file": "layer_05_pagoda_tower.png",
+      "name": "pagoda_tower",
+      "description": "宝塔（带灵气光环特效，竖构图单体）",
+      "size": [520, 915],
+      "bounding_box": [0, 0, 520, 915],
+      "coverage_percent": 52.0,
+      "transparent": true
+    }
+  ]
+}

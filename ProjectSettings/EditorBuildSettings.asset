@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/Scenes/\u5927\u5385.scene"
+    guid: 9863bce7ba48a19408fa4cdbedbedb87
+  - enabled: 1
+    path: Assets/Scenes/MapScene.unity
+    guid: 118b24208ec901b46995da93702c1978
+  - enabled: 1
+    path: Assets/SampleScene.scene
+    guid: 5bdb0aee390126a4a8860d3e1f641cf9
+  - enabled: 1
+    path: Assets/Scenes/EventScene.unity
+    guid: 281f352cd312be348992e312a936c590
+  - enabled: 1
+    path: Assets/Scenes/RestScene.unity
+    guid: 2d740d200980a6249a99b722609c8fcb
+  - enabled: 1
+    path: Assets/Scenes/LocationScene.unity
+    guid: 532fd25a506b28142a4886420423140d
+  - enabled: 1
+    path: Assets/Scenes/InteriorScene.unity
+    guid: 8a5428042d330774ca1543bac58660fb
+  - enabled: 1
+    path: "Assets/Scenes/\u79D8\u5883.scene"
+    guid: 931b1434d1f7e5048a01b5a7ca0818ad
+  m_BuildProfiles: []
+  m_configObjects: {}
+  m_SlimFeaturesWeixinMiniGame:
+    ACLDecompression: 0
+    AllocateOverhead: 1
+    DecompressASTC: 0
+    DecompressDXT: 0
+    DecompressETC: 1
+    FreeTypeSfntPng: 1
+    LightProbe: 2
+    RootMotion: 0
+    UseStringInternPool: 2
+
+

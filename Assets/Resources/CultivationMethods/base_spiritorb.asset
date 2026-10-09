@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281943cd27a9634fa8ebdb0a64a5d92, type: 3}
+  m_Name: base_spiritorb
+  m_EditorClassIdentifier: 
+  methodId: base_spiritorb
+  displayName: "\u51DD\u7075\u8BC0"
+  isPreset: 1
+  description: "\u7075\u7403\u672F\u5165\u95E8\u529F\u6CD5\uFF0C\u4EE5\u91CF\u53D6\u80DC\u7684\u57FA\u7840\u6D41\u6D3E\u3002\u8BCD\u7F00\uFF1A\u5206\u88C2/\u7A7F\u900F/\u8FDE\u53D1/\u8FFD\u98CE/\u7075\u7206"
+  icon: {fileID: 21300000, guid: 9228ad65a70a9004999b93792e1a57c2, type: 3}
+  baseSkillId: SpiritOrb
+  spiritRoot: 0
+  spiritRootLevel: 0
+  affixes: 0000000001000000120000001000000013000000
+  daoId: 
+  damageBonus: 0
+  attackSpeedBonus: 0

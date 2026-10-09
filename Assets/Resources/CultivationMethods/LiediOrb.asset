@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281943cd27a9634fa8ebdb0a64a5d92, type: 3}
+  m_Name: LiediOrb
+  m_EditorClassIdentifier: 
+  methodId: liedi_orb
+  displayName: "\u88C2\u5730\u7075\u7403"
+  isPreset: 1
+  description: "\u805A\u7075\u6210\u5CA9\uFF0C\u4E00\u51FB\u88C2\u5730\u3002\u539A\u571F\u4E4B\u529B\uFF0C\u5C71\u5D29\u5730\u88C2\u3002"
+  baseSkillId: SpiritOrb
+  spiritRoot: 4
+  spiritRootLevel: 3
+  affixes: 250000001a0000001b000000110000000c000000
+  daoId: Dao_Earth_Quake
+  damageBonus: 0
+  attackSpeedBonus: 0

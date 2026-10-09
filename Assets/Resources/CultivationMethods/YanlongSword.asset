@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281943cd27a9634fa8ebdb0a64a5d92, type: 3}
+  m_Name: YanlongSword
+  m_EditorClassIdentifier: 
+  methodId: yanlong_sword
+  displayName: "\u708E\u9F99\u5251\u8BC0"
+  isPreset: 1
+  description: "\u5FA1\u5251\u4E3A\u9AA8\uFF0C\u711A\u706B\u4E3A\u9B42\u3002\u5251\u6C14\u6240\u81F3\uFF0C\u708E\u9F99\u5347\u817E\u3002"
+  baseSkillId: FlyingSword
+  spiritRoot: 2
+  spiritRootLevel: 1
+  affixes: 2300000001000000070000001400000011000000
+  daoId: Dao_Fire_Blade
+  damageBonus: 0
+  attackSpeedBonus: 0

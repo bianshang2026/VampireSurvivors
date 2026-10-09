@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281943cd27a9634fa8ebdb0a64a5d92, type: 3}
+  m_Name: base_talisman
+  m_EditorClassIdentifier: 
+  methodId: base_talisman
+  displayName: "\u7B26\u7B93\u771F\u89E3"
+  isPreset: 1
+  description: "\u7B26\u7B93\u672F\u5165\u95E8\u529F\u6CD5\uFF0C\u7B26\u7EB8\u5929\u964D\u7684\u538B\u5236\u6D41\u6D3E\u3002\u8BCD\u7F00\uFF1A\u8FDE\u7B26/\u6563\u7B26/\u5760\u843D/\u4F59\u5A01/\u65A9\u6740"
+  icon: {fileID: 21300000, guid: 5c5905564fa62d54fafee2f033718ea2, type: 3}
+  baseSkillId: Talisman
+  spiritRoot: 0
+  spiritRootLevel: 0
+  affixes: 3000000031000000180000000a0000000c000000
+  daoId: 
+  damageBonus: 0
+  attackSpeedBonus: 0

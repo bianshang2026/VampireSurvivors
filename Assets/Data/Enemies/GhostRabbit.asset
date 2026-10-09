@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01352bb2be2584439a00e79e5e35003, type: 3}
+  m_Name: GhostRabbit
+  m_EditorClassIdentifier: 
+  enemyName: "\u5E7D\u51A5\u5154"
+  maxHealth: 20
+  attack: 5
+  defense: 5
+  moveSpeed: 2.5
+  detectRange: 9999
+  stopDistance: 1.2
+  separationRadius: 1.5
+  separationForce: 3
+  element: 0
+  elementDefense: 0
+  isRanged: 0
+  attackInterval: 2.5
+  attackRange: 8
+  projectileSpeed: 5
+  projectileDamage: 5
+  expDrop: 20
+  orbTier: 0
+  affectedByTimeScaling: 1

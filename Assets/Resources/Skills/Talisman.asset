@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91542f3daf952f0418e39114ecaddf4f, type: 3}
+  m_Name: Talisman
+  m_EditorClassIdentifier: 
+  skillName: Talisman
+  skillType: 0
+  element: 0
+  damageMultiplier: 1.5
+  baseRange: 10
+  cooldown: 1.8
+  attackSpeed: 5
+  projectileSpeed: 14
+  projectileLifetime: 2
+  projectileScale: 0.08
+  damageRadius: 3
+  maxProjectiles: 3
+  maxLevel: 10
+  upgradeDamageMult: 1.3
+  upgradeCooldownMult: 0.9
+  iconSprite: {fileID: 0}
+  projectileSprite: {fileID: 0}
